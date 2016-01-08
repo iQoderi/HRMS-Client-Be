@@ -5,7 +5,8 @@
   color: #666;
 }
 
-.my-spare-tit{
+
+.spare-tit,.my-spare-tit{
   height: 40px;
   line-height:40px;
   background: #0066cc;
@@ -16,11 +17,53 @@
   box-shadow:0 5px 5px #ccc;
 }
 
-.my-spare-tit h3{
+.spare-tit h3,.my-spare-tit h3{
   text-align: center;
   color: #FFF;
   font-size: 16px;
 }
+
+.spare-content{
+  min-height: 500px;
+  width: 90%;
+  margin: 0px auto;
+  margin-top: 50px;
+  /*border: 1px solid #ccc;*/
+}
+
+.spare-content form fieldset{
+  height: 100px;
+  box-sizing: border-box;
+  line-height: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+input[type='checkbox']{
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  border: #ccc;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+
+
+.submit-btn{
+  width: 100%;
+  height: 40px;
+  background: #0066cc;
+  color: #F6F6F6;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  margin-top:25px;
+  margin-bottom: 50px;
+}
+
+
 
 .my-spare-content{
   min-height: 200px;

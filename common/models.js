@@ -5,8 +5,8 @@
 
 module.exports = {
     user: {
-        name: {type: String, required: true},
-        password: {type: String, required: true},
-        SpareTime: {type: Array, require: true}
+        username: {type: String, required: true},
+        tel: {type: String, required: true},
+        mySpareTime: {type: Array, require: true}
     }
 }

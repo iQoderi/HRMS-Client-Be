@@ -9,7 +9,7 @@
 <body>
 <div class="my-spare-tit"><h3>我的空闲时间</h3></div>
 <div class="my-spare-content">
-    <table style="margin:50px auto"  class="my-spare-table">
+    <table style="margin:50px auto" class="my-spare-table">
         <thead class="my-spare-table-tit">
         <tr>
             <td></td>
@@ -25,59 +25,45 @@
         <tbody class="my-spare-time-content">
         <tr>
             <td class="whichClass">一、二节</td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
+            <%for(var i=0;i<7;i++){%>
+            <td class="td-1"></td>
+
+            <%}%>
         </tr>
         <tr>
             <td class="whichClass">三、四节</td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
+            <%for(i=0;i<7;i++){%>
+
+            <td class="td-2"></td>
+            <%}%>
         </tr>
         <tr>
             <td class="whichClass">五、六节</td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
+            <%for(i=0;i<7;i++){%>
+
+            <td class="td-3"></td>
+            <%}%>
         </tr>
         <tr>
             <td class="whichClass">七、八节</td>
             <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
+            <<%for(i=0;i<7;i++){%>
+
+            <td class="td-4"></td>
+            <%}%>
         </tr>
-        <tr >
+        <tr>
             <td class="whichClass">九、十节</td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
-            <td>√</td>
-            <td></td>
-            <td></td>
+            <%for(i=0;i<7;i++){%>
+
+            <td class="td-5"></td>
+            <%}%>
         </tr>
         </tbody>
     </table>
 </div>
 <div class="change-spare-time" id="change-spare-time">
-    <a href="http://localhost:9090">修改</a>
+    <a href="/signSpareTime?username=Qoder">修改</a>
 </div>
 </body>
 </html>
