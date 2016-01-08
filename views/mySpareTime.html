@@ -26,37 +26,33 @@
         <tr>
             <td class="whichClass">一、二节</td>
             <%for(var i=0;i<7;i++){%>
-            <td class="td-1"></td>
-
+            <td class="td-1"><%=spareTime[0][i]?"":'√'%></td>
             <%}%>
         </tr>
         <tr>
             <td class="whichClass">三、四节</td>
             <%for(i=0;i<7;i++){%>
 
-            <td class="td-2"></td>
+            <td class="td-2"><%=spareTime[1][i]?"":'√'%></td>
             <%}%>
         </tr>
         <tr>
             <td class="whichClass">五、六节</td>
             <%for(i=0;i<7;i++){%>
 
-            <td class="td-3"></td>
+            <td class="td-3"><%=spareTime[2][i]?"":'√'%></td>
             <%}%>
         </tr>
         <tr>
             <td class="whichClass">七、八节</td>
-            <td></td>
             <<%for(i=0;i<7;i++){%>
-
-            <td class="td-4"></td>
+            <td class="td-4"><%=spareTime[3][i]?"":'√'%></td>
             <%}%>
         </tr>
         <tr>
             <td class="whichClass">九、十节</td>
             <%for(i=0;i<7;i++){%>
-
-            <td class="td-5"></td>
+            <td class="td-5"><%=spareTime[4][i]?"":'√'%></td>
             <%}%>
         </tr>
         </tbody>

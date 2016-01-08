@@ -31,10 +31,9 @@ router.get('/mySpareTime', function (req, res, next) {
             console.log('Mongodb error');
         }
         if (!docs) {
-            res.status(200);
+            res.status(404);
         } else {
-            res.render('mySpareTime');
-            //console.log(docs.mySpareTime);
+            res.render('mySpareTime',{spareTime:docs.mySpareTime});
         }
     });
 });
