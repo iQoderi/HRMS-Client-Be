@@ -84,7 +84,7 @@ window.onload = function () {
                 tel: '18716037332',
                 mySpareTime: spareTime
             });
-            Ajax('POST', '/signSpareTime', sendData, true, function () {
+            Ajax('POST', '/updateSpareTime', sendData, true, function () {
                 window.location.pathname = '/mySpareTime';
             });
         }

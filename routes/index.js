@@ -61,15 +61,20 @@ router.get('/updateSpareTime', function (req, res, next) {
 });
 
 router.post('/updateSpareTime', function (req, res, next) {
+    console.log('======================sadfasdfawdfawfasdfasfqwe=======');
     var User = dbHelper.getModel('user');
     var myUsername = req.query.username;
     var data = req.body;
-    User.updateOne({username: myUsername}, {$set: {mySpareTime: data.mySpareTime}}, function (err, doc) {
+    User.update({username: myUsername}, {$set: {mySpareTime: data.mySpareTime}},{ multi: true },function (err, doc) {
         if (err) {
             console.log('mongodb error');
         } else {
-            res.status(200);
             res.redirect('/mySpareTime?username=' + myUsername);
+            console.log(doc);
+            User.find({username:myUsername}, function (err, doc) {
+                console.log("************************************")
+                console.log(doc)
+            })
         }
     })
 });
