@@ -11,6 +11,7 @@ var array =
         [ false, false, false, false, false ] ]
 
 function toInt(array){
+    //把array变成整数，周一到周六在low，周日在high
     var low = 0;//low 低30位
     var high = 0;//high 高5位
     for(var i = 0;i<6;++i){
@@ -32,6 +33,7 @@ function toInt(array){
 }
 
 function toArray(llInt){
+    //把两个整数变成数组
     var low = llInt.low;
     var high = llInt.high;
     console.log("toArray");console.log(low);console.log(high);
@@ -56,6 +58,7 @@ function toArray(llInt){
 }
 
 function Match(llIntTar,llIntDat){
+    //data匹配target
     if((llIntTar.low & llIntDat.low === llIntTar.low)&& (llIntTar.high & ((1<<5)-1) & llIntDat.high === llIntTar.high & ((1<<5)-1)))return true;
     return false;
 /*    for(var i = 0; i <30;++i){
