@@ -6,7 +6,6 @@ window.onload = function () {
         return document.getElementsByClassName(className);
     };
     var spareTime = [];
-    var submitBtn = document.getElementById('submit-btn');
 
     //Ajax
     var xmlhttp;
@@ -58,18 +57,36 @@ window.onload = function () {
         return spareTime;
     }
 
-    submitBtn.onclick = function () {
-        sendArray();
-        var sendData = JSON.stringify({
-            username: 'Qoder',
-            department: '打杂的',
-            tel: '18716037332',
-            mySpareTime: spareTime
-        });
-        Ajax('POST', '/signSpareTime', sendData, true, function () {
-            window.location.pathname = '/mySpareTime';
-        });
+    var submitBtn = document.getElementById('submit-btn');
+    if (submitBtn) {
+        submitBtn.onclick = function () {
+            sendArray();
+            var sendData = JSON.stringify({
+                username: 'Qoder',
+                department: '打杂的',
+                tel: '18716037332',
+                mySpareTime: spareTime
+            });
+            Ajax('POST', '/signSpareTime', sendData, true, function () {
+                window.location.pathname = '/mySpareTime';
+            });
 
+        }
     }
 
+    var reSubmitBtn=document.getElementById('re-submit-btn');
+    if (reSubmitBtn){
+        reSubmitBtn.onclick = function () {
+            sendArray();
+            var sendData = JSON.stringify({
+                username: 'Qoder',
+                department: '打杂的',
+                tel: '18716037332',
+                mySpareTime: spareTime
+            });
+            Ajax('POST', '/signSpareTime', sendData, true, function () {
+                window.location.pathname = '/mySpareTime';
+            });
+        }
+    }
 };
