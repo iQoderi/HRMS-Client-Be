@@ -48,7 +48,7 @@ window.onload = function () {
         var SunSpareTime = spareFilter(getClass('SunSpareTime'));
         //alert('确定提交表单?');
         spareTime.push(MonSpareTime);
-        spareTime.push(ThuSpareTime);
+        spareTime.push(TueSpareTime);
         spareTime.push(WedSpareTime);
         spareTime.push(ThuSpareTime);
         spareTime.push(FriSpareTime);
@@ -78,6 +78,7 @@ window.onload = function () {
     if (reSubmitBtn){
         reSubmitBtn.onclick = function () {
             sendArray();
+            console.log()
             var sendData = JSON.stringify({
                 username: 'Qoder',
                 department: '打杂的',

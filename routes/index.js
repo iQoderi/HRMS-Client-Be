@@ -47,7 +47,6 @@ router.get('/mySpareTime', function (req, res, next) {
         if (!docs) {
             res.redirect('/signSpareTime?username='+myUsername)
         } else {
-            console.log(docs.mySpareTime);
             var myClass=['一二节','三四节','五六节','七八节','九十节'];
             var tureImg="../images/background-true.png";
             res.render('mySpareTime', {spareTime: docs.mySpareTime,weekClass:myClass,spareBg:tureImg});
@@ -61,19 +60,20 @@ router.get('/updateSpareTime', function (req, res, next) {
 });
 
 router.post('/updateSpareTime', function (req, res, next) {
-    console.log('======================sadfasdfawdfawfasdfasfqwe=======');
     var User = dbHelper.getModel('user');
-    var myUsername = req.query.username;
+    var myUsername = req.body.username;
+    console.log("---------"+myUsername);
     var data = req.body;
+    console.log("+++++++"+data.mySpareTime);
     User.update({username: myUsername}, {$set: {mySpareTime: data.mySpareTime}},{ multi: true },function (err, doc) {
         if (err) {
             console.log('mongodb error');
         } else {
             res.redirect('/mySpareTime?username=' + myUsername);
-            console.log(doc);
+            console.log("***"+doc);
             User.find({username:myUsername}, function (err, doc) {
                 console.log("************************************")
-                console.log(doc)
+                console.log(doc);
             })
         }
     })
