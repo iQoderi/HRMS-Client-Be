@@ -10,7 +10,7 @@ window.onload = function () {
 
     //Ajax
     var xmlhttp;
-    var Ajax = function (method, url, data, async,fn) {  //async：true（异步）或 false（同步）
+    var Ajax = function (method, url, data, async, fn) {  //async：true（异步）或 false（同步）
         if (window.XMLHttpRequest) {
             xmlhttp = new XMLHttpRequest();
         } else {
@@ -38,8 +38,7 @@ window.onload = function () {
         }
         return res;
     }
-
-    submitBtn.onclick = function () {
+    var sendArray = function () {
         spareTime = [];
         var MonSpareTime = spareFilter(getClass('MonSpareTime'));
         var TueSpareTime = spareFilter(getClass('TueSpareTime'));
@@ -56,14 +55,19 @@ window.onload = function () {
         spareTime.push(FriSpareTime);
         spareTime.push(SatSpareTime);
         spareTime.push(SunSpareTime);
-        console.log(spareTime);
+        return spareTime;
+    }
+
+    submitBtn.onclick = function () {
+        sendArray();
         var sendData = JSON.stringify({
-            username:'Qoder',
+            username: 'Qoder',
+            department: '打杂的',
             tel: '18716037332',
             mySpareTime: spareTime
         });
-        Ajax('POST', '/signSpareTime',sendData,true, function () {
-            window.location.pathname='/mySpareTime';
+        Ajax('POST', '/signSpareTime', sendData, true, function () {
+            window.location.pathname = '/mySpareTime';
         });
 
     }

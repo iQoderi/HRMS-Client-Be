@@ -1,123 +1,216 @@
-*{
-  padding: 0;
-  margin: 0;
-  font-size: 12px;
-  color: #666;
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    color: #666;
 }
 
-
-.spare-tit,.my-spare-tit{
-  height: 40px;
-  line-height:40px;
-  background: #0066cc;
-  color: #F6F6F6;
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  box-shadow:0 5px 5px #ccc;
+.spare-tit, .my-spare-tit {
+    height: 40px;
+    line-height: 40px;
+    background: #0066cc;
+    color: #F6F6F6;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    box-shadow: 0 5px 5px #ccc;
+    z-index: 9999;
 }
 
-.spare-tit h3,.my-spare-tit h3{
-  text-align: center;
-  color: #FFF;
-  font-size: 16px;
+.spare-tit h3, .my-spare-tit h3 {
+    text-align: center;
+    color: #FFF;
+    font-size: 16px;
 }
 
-.spare-content{
-  min-height: 500px;
-  width: 90%;
-  margin: 0px auto;
-  margin-top: 50px;
-  /*border: 1px solid #ccc;*/
+.spare-content {
+    min-height: 500px;
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 50px;
 }
 
-.spare-content form fieldset{
-  height: 100px;
-  box-sizing: border-box;
-  line-height: 20px;
-  padding-top: 20px;
-  padding-left: 10px;
-  margin-bottom: 15px;
+legend {
+    font-size: 14px;
+    margin-left: 5px;
 }
 
-input[type='checkbox']{
-  height: 15px;
-  width: 15px;
-  display: inline-block;
-  border: #ccc;
-  border-radius: 20px;
-  vertical-align: middle;
+.checkBox-list {
+    padding-left: 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-bottom: 50px;
 }
 
-
-.submit-btn{
-  width: 100%;
-  height: 40px;
-  background: #0066cc;
-  color: #F6F6F6;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  outline: none;
-  margin-top:25px;
-  margin-bottom: 50px;
+.checkBox-list .checkBox-wrapper {
+    position: relative;
+    list-style: none;
+    width: 15%;
+    display: inline-block;
+    text-align: center;
+    margin-left: 10px;
 }
 
-
-
-.my-spare-content{
-  min-height: 200px;
-  width: 90%;
-  margin: 0px auto;
-  margin-top: 80px;
+.checkBox-list .checkBox-view {
+    position: absolute;
+    background: #cccccc;
+    color: #F6F6F6;
+    font-size: 10px;
+    padding: 2px;
+    box-sizing: border-box;
+    font-weight: bolder;
+    z-index: 100;
 }
 
-.my-spare-table{
-  height: 300px;
-  border: 1px solid #ccc;
+input[type='checkbox'] {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    border: #ccc;
+    position: absolute;
+    border-radius: 20px;
+    top: 13px;
+    right: 21px;
+    opacity: 0;
+    z-index: 1010;
+    vertical-align: middle;
+
 }
 
-.my-spare-table-tit{
-  height: 40px;
-  background: #e8e8e8;
+input[type='checkbox']:checked + span {
+    opacity: 1;
 }
 
-.my-spare-table-tit tr{
-  height: 30px;
+input[type='checkbox']:checked + .myspan1 {
+    background: url("../images/little_head.png") no-repeat center;
+    background-size: cover;
 }
 
-.my-spare-time-content{
-  background: #e8e8e8;
+input[type='checkbox']:checked + .myspan2 {
+    background: url("../images/3_heads.png") no-repeat center;
+    background-size: cover;
 }
 
-.my-spare-time-content tr{
-  height: 25px;
+input[type='checkbox']:checked + .myspan3 {
+    background: url("../images/big_eye.png") no-repeat center;
+    background-size: cover;
 }
 
-.my-spare-time-content tr td{
-  text-align: center;
-  font-weight: bolder;
-  font-size: 21px;
-  color: green;
+input[type='checkbox']:checked + .myspan4 {
+    background: url("../images/look_down.png") no-repeat center;
+    background-size: cover;
 }
 
-.my-spare-time-content tr .whichClass{
-  font-weight: normal;
-  color: #666666;
-  font-size: 14px;
+input[type='checkbox']:checked + .myspan5 {
+    background: url("../images/lots_of_teeth.png") no-repeat center;
+    background-size: cover;
 }
 
-.change-spare-time{
-  width: 90%;
-  margin: -20px auto;
-  float: left;
+input[type='checkbox']:checked + .myspan6 {
+    background: url("../images/oranger.png") no-repeat center;
+    background-size: cover;
 }
 
-.change-spare-time a{
-  color: #0066cc;
-  float:right;
-  margin-right: 0px;
-  font-size: 16px;
-  text-decoration: none;
+input[type='checkbox']:checked + .myspan7 {
+    background: url("../images/bouncer.png") no-repeat center;
+    background-size: cover;
+}
+
+.checkBox-wrapper {
+    position: relative;
+}
+
+.checkBox-view {
+    position: absolute;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    left: 0px;
+    top: 0px;
+}
+
+.submit-btn {
+    width: 100%;
+    height: 40px;
+    background: #0066cc;
+    color: #F6F6F6;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.my-spare-content {
+    min-height: 200px;
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 80px;
+}
+
+.up-spare-content {
+    padding-top: 80px;
+    width: 100%;
+    height: 700px;
+    background: url("../images/bg.jpg") no-repeat center;
+    /*background-color:#c4e3f3;*/
+    background-size: 100% 100%;
+
+}
+
+.up-spare-content .spare-list {
+    width: 85%;
+    height: 70%;
+    color: #666666;
+    margin: 20px auto;
+    background: #FFF;
+    opacity: 0.5;
+}
+
+.up-spare-content .spare-list ul {
+    opacity: 1;
+    width: 90%;
+    padding-left: 3%;
+    margin: 0 auto;
+    height: 60px;
+    background: #e8e8e8;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.up-spare-content .spare-list ul li {
+    width: 18%;
+    height: 100%;
+    color: #666;
+    display: inline-block;
+    padding-top: 9%;
+    text-align: center;
+    border: 1px solid #666;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-weight: bolder;
+}
+
+.up-spare-content .spare-list ul .spare-true{
+    background: url("../images/little_head.png") no-repeat center;
+    background-size: cover;
+    color:#FFFFFF;
+}
+
+.change-spare-time {
+    width: 90%;
+    margin: -150px auto;
+    float: left;
+    opacity: 0.8;
+}
+
+.change-spare-time a {
+    color: #0066cc;
+    float: right;
+    margin-right: 0px;
+    font-size: 16px;
+    text-decoration: none;
 }
 

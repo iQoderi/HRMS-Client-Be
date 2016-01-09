@@ -7,59 +7,20 @@
     <link href="../stylesheets/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<div class="my-spare-tit"><h3>我的空闲时间</h3></div>
-<div class="my-spare-content">
-    <table style="margin:50px auto" class="my-spare-table">
-        <thead class="my-spare-table-tit">
-        <tr>
-            <td></td>
-            <th>星期一</th>
-            <th>星期二</th>
-            <th>星期三</th>
-            <th>星期四</th>
-            <th>星期五</th>
-            <th>星期六</th>
-            <th>星期天</th>
-        </tr>
-        </thead>
-        <tbody class="my-spare-time-content">
-        <tr>
-            <td class="whichClass">一、二节</td>
-            <%for(var i=0;i<7;i++){%>
-            <td class="td-1"><%=spareTime[0][i]?"":'√'%></td>
+<div class="my-spare-tit" style="box-shadow: none"><h3>我的空闲时间</h3></div>
+<div class="up-spare-content">
+    <div class="spare-list">
+        <%for(var i=0;i<7;i++){%>
+        <ul>
+            <%for(var j=0;j<5;j++){%>
+            <li class="spare-<%=spareTime[i][j]%>"><%=weekClass[j]%></li>
             <%}%>
-        </tr>
-        <tr>
-            <td class="whichClass">三、四节</td>
-            <%for(i=0;i<7;i++){%>
-
-            <td class="td-2"><%=spareTime[1][i]?"":'√'%></td>
-            <%}%>
-        </tr>
-        <tr>
-            <td class="whichClass">五、六节</td>
-            <%for(i=0;i<7;i++){%>
-
-            <td class="td-3"><%=spareTime[2][i]?"":'√'%></td>
-            <%}%>
-        </tr>
-        <tr>
-            <td class="whichClass">七、八节</td>
-            <<%for(i=0;i<7;i++){%>
-            <td class="td-4"><%=spareTime[3][i]?"":'√'%></td>
-            <%}%>
-        </tr>
-        <tr>
-            <td class="whichClass">九、十节</td>
-            <%for(i=0;i<7;i++){%>
-            <td class="td-5"><%=spareTime[4][i]?"":'√'%></td>
-            <%}%>
-        </tr>
-        </tbody>
-    </table>
+        </ul>
+        <%}%>
+    </div>
 </div>
-<div class="change-spare-time" id="change-spare-time">
-    <a href="/signSpareTime?username=Qoder">修改</a>
+<div class="change-spare-time">
+    <a href="/updateSpareTime?username=Qoder">修改</a>
 </div>
 </body>
 </html>

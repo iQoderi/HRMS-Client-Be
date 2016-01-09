@@ -1,16 +1,28 @@
 var express = require('express');
 var dbHelper = require('../common/dbHelper');
 var router = express.Router();
-var url = require('url');
+
 /* GET home page. */
-
 router.get('/', function (req, res, next) {
-    res.send('啥也没有');
+    res.send('你愁啥，瞅你咋地');
 });
 
+//设置空闲时间
 router.get('/signSpareTime', function (req, res, next) {
-    res.render('index');
+    var myUsername = req.query.user;
+    var User = dbHelper.getModel('user');
+    User.findOne({username: myUsername}, function (err, doc) {
+        if (err) {
+            console.log('mongodb error');
+        }
+        if (doc) {
+            res.redirect('/mySpareTime?username=' + myUsername);
+        } else {
+            res.render('index');
+        }
+    });
 });
+
 
 router.post('/signSpareTime', function (req, res, next) {
     var User = dbHelper.getModel('user');
@@ -23,6 +35,8 @@ router.post('/signSpareTime', function (req, res, next) {
         }
     });
 });
+
+//我的空闲时间
 router.get('/mySpareTime', function (req, res, next) {
     var myUsername = req.query.username;
     var User = dbHelper.getModel('user');
@@ -31,11 +45,33 @@ router.get('/mySpareTime', function (req, res, next) {
             console.log('Mongodb error');
         }
         if (!docs) {
-            res.status(404);
+            res.redirect('/signSpareTime?username='+myUsername)
         } else {
-            res.render('mySpareTime',{spareTime:docs.mySpareTime});
+            console.log(docs.mySpareTime);
+            var myClass=['一二节','三四节','五六节','七八节','九十节'];
+            var tureImg="../images/background-true.png";
+            res.render('mySpareTime', {spareTime: docs.mySpareTime,weekClass:myClass,spareBg:tureImg});
         }
     });
+});
+
+//更新空闲时间
+router.get('/updateSpareTime', function (req, res, next) {
+    res.render('updateSpareTime');
+});
+
+router.post('/updateSpareTime', function (req, res, next) {
+    var User = dbHelper.getModel('user');
+    var myUsername = req.query.username;
+    var data = req.body;
+    User.updateOne({username: myUsername}, {$set: {mySpareTime: data.mySpareTime}}, function (err, doc) {
+        if (err) {
+            console.log('mongodb error');
+        } else {
+            res.status(200);
+            res.redirect('/mySpareTime?username=' + myUsername);
+        }
+    })
 });
 
 
