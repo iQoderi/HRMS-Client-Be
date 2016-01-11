@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 
 //设置空闲时间
 router.get('/signSpareTime', function (req, res, next) {
-    var myUsername = req.query.user;
+    var myUsername = req.query.username;
     var User = dbHelper.getModel('user');
     User.findOne({username: myUsername}, function (err, doc) {
         if (err) {
@@ -17,6 +17,7 @@ router.get('/signSpareTime', function (req, res, next) {
         }
         if (doc) {
             res.redirect('/mySpareTime?username=' + myUsername);
+            console.log('called');
         } else {
             res.render('index');
         }
@@ -45,34 +46,48 @@ router.get('/mySpareTime', function (req, res, next) {
             console.log('Mongodb error');
         }
         if (!docs) {
-            res.redirect('/signSpareTime?username='+myUsername)
+            res.redirect('/signSpareTime?username=' + myUsername)
         } else {
-            var myClass=['一二节','三四节','五六节','七八节','九十节'];
-            var tureImg="../images/background-true.png";
-            res.render('mySpareTime', {spareTime: docs.mySpareTime,weekClass:myClass,spareBg:tureImg});
+            var myClass = ['一二节', '三四节', '五六节', '七八节', '九十节'];
+            res.render('mySpareTime', {spareTime: docs.mySpareTime, weekClass: myClass});
         }
     });
 });
 
 //更新空闲时间
 router.get('/updateSpareTime', function (req, res, next) {
-    res.render('updateSpareTime');
-});
+    var User = dbHelper.getModel('user');
+    var myUsername = req.query.username;
+    var weekDay = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期天'];
+    var myClass = ['一二节', '三四节', '五六节', '七八节', '九十节'];
+    var ClassName = ['MonSpareTime', 'TueSpareTime', 'WedSpareTime', 'ThuSpareTime', 'FriSpareTime', 'SatSpareTime', 'SunSpareTime'];
+    User.findOne({username: myUsername}, function (err, doc) {
+        if (err) {
+            res.send(500);
+            console.log('mongodb error');
+        } else {
+            res.render('updateSpareTime', {
+                myWeekDay: weekDay,
+                myWeekClass: myClass,
+                mySpareTime: doc.mySpareTime,
+                myClassName: ClassName
+            });
+        }
+    });
+
+})
+;
 
 router.post('/updateSpareTime', function (req, res, next) {
     var User = dbHelper.getModel('user');
     var myUsername = req.body.username;
-    console.log("---------"+myUsername);
     var data = req.body;
-    console.log("+++++++"+data.mySpareTime);
-    User.update({username: myUsername}, {$set: {mySpareTime: data.mySpareTime}},{ multi: true },function (err, doc) {
+    User.update({username: myUsername}, {$set: {mySpareTime: data.mySpareTime}}, {multi: true}, function (err, doc) {
         if (err) {
             console.log('mongodb error');
         } else {
             res.redirect('/mySpareTime?username=' + myUsername);
-            console.log("***"+doc);
-            User.find({username:myUsername}, function (err, doc) {
-                console.log("************************************")
+            User.find({username: myUsername}, function (err, doc) {
                 console.log(doc);
             })
         }
