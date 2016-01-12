@@ -70,8 +70,9 @@ window.onload = function () {
             Ajax('POST', '/signSpareTime', sendData, true, function () {
                 window.location.pathname = '/mySpareTime';
                 console.log('called');
-            });
 
+            });
+            this.setAttribute('disabled','true');
         }
     }
 
