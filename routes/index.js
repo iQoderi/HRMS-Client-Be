@@ -28,13 +28,20 @@ router.get('/signSpareTime', function (req, res, next) {
 router.post('/signSpareTime', function (req, res, next) {
     var User = dbHelper.getModel('user');
     var data = req.body;
-    User.create(data, function (err, docs) {
-        if (err) {
-            console.log('Mongodb err' + err);
-        } else {
-            res.send(200);
-        }
-    });
+    console.log(req.session.hasSign);
+    if (req.session.hasSign===undefined) {
+        User.create(data, function (err, docs) {
+            if (err) {
+                console.log('Mongodb err' + err);
+            } else {
+                req.session.hasSign =1;
+                res.send(200);
+            }
+        });
+    } else {
+        console.log('called');
+        res.send('确定重新提交表单？');
+    }
 });
 
 //我的空闲时间

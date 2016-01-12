@@ -46,7 +46,7 @@ window.onload = function () {
         var FriSpareTime = spareFilter(getClass('FriSpareTime'));
         var SatSpareTime = spareFilter(getClass('SatSpareTime'));
         var SunSpareTime = spareFilter(getClass('SunSpareTime'));
-        //alert('确定提交表单?');
+        alert('确定提交表单?');
         spareTime.push(MonSpareTime);
         spareTime.push(TueSpareTime);
         spareTime.push(WedSpareTime);
@@ -69,6 +69,7 @@ window.onload = function () {
             });
             Ajax('POST', '/signSpareTime', sendData, true, function () {
                 window.location.pathname = '/mySpareTime';
+                console.log('called');
             });
 
         }
